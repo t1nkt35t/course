@@ -28,6 +28,11 @@ public class Detail {
     @Setter
     private String email;
 
+    @Setter
+    @Getter
+    @OneToOne(mappedBy = "empDetail", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private Employee employee;
+
     @Override
     public String toString() {
         return "Detail{" +

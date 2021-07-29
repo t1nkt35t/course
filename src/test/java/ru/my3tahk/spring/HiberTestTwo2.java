@@ -6,9 +6,7 @@ import org.hibernate.cfg.Configuration;
 import ru.my3tahk.spring.hibernate2.entity.Detail;
 import ru.my3tahk.spring.hibernate2.entity.Employee;
 
-import java.util.List;
-
-public class HiberTestTwo1 {
+public class HiberTestTwo2 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -17,24 +15,24 @@ public class HiberTestTwo1 {
                 .buildSessionFactory();
 
         Session session = null;
+
         try {
-//            Session session = factory.getCurrentSession();
-//            Employee employee = new Employee("Jora", "Ivanov", "SALES", 1000);
-            Detail detail = new Detail("GOL", "7654321", "jorik@lol.kek");
+
+//            session = factory.getCurrentSession();
+//            Employee employee = new Employee("ROFL", "Ivanov", "HR", 900);
+//            Detail detail = new Detail("NY", "5555555", "roflik@lol.kek");
 //            employee.setEmpDetail(detail);
+//            detail.setEmployee(employee);
 //            session.beginTransaction();
-//            session.save(employee);
+//            session.save(detail);
 //            session.getTransaction().commit();
-//
-//            System.out.println("DONE");
+
             session = factory.getCurrentSession();
             session.beginTransaction();
-            Employee emo = session.get(Employee.class, 1);
-            session.delete(emo);
-//            Detail det = emo.getEmpDetail();
-//            det.setPhoneNumber("6666666");
-//            session.save(emo);
-//            System.out.println(emo.getEmpDetail());
+            Detail detail = session.get(Detail.class, 3);
+            detail.getEmployee().setEmpDetail(null);
+            session.delete(detail);
+
             session.getTransaction().commit();
 
             System.out.println("DONE");
