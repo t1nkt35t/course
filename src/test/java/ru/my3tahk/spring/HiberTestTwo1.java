@@ -3,10 +3,8 @@ package ru.my3tahk.spring;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.my3tahk.spring.hibernate2.entity.Detail;
-import ru.my3tahk.spring.hibernate2.entity.Employee;
-
-import java.util.List;
+import ru.my3tahk.spring.hibernateOneToOne.entity.Detail;
+import ru.my3tahk.spring.hibernateOneToOne.entity.Employee;
 
 public class HiberTestTwo1 {
     public static void main(String[] args) {

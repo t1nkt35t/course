@@ -1,4 +1,4 @@
-package ru.my3tahk.spring.hibernate2.entity;
+package ru.my3tahk.spring.hibernateOneToManyBi.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,23 +26,18 @@ public class Employee {
     private String surName;
     @Setter
     @Getter
-    @Column(name = "department")
-    private String department;
-    @Setter
-    @Getter
     @Column(name = "salary")
     private int salary;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "details_id")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
+    @JoinColumn(name = "department_id")
     @Setter
     @Getter
-    private Detail empDetail;
+    private Department department;
 
-    public Employee(String name, String surName, String department, int salary) {
+    public Employee(String name, String surName, int salary) {
         this.name = name;
         this.surName = surName;
-        this.department = department;
         this.salary = salary;
     }
 
@@ -52,7 +47,6 @@ public class Employee {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surName='" + surName + '\'' +
-                ", department='" + department + '\'' +
                 ", salary=" + salary +
                 '}';
     }

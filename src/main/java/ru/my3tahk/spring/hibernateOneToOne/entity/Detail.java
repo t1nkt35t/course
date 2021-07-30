@@ -1,4 +1,4 @@
-package ru.my3tahk.spring.hibernate2.entity;
+package ru.my3tahk.spring.hibernateOneToOne.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
